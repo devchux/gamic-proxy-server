@@ -18,11 +18,15 @@ app.use((req, res, next) => {
 
 app.get("/summary", async (req, res) => {
   try {
-    const { data } = await axios.get("https://gamic.app/api/dashboard/summary");
+    const { data } = await axios.get(
+      "https://gamic.app/api/dashboard/summary"
+    );
 
     res.status(200).json(data);
   } catch (error) {
-    res.status(error.response.status).json(error.response.data);
+    res
+      .status(error?.response?.status || 400)
+      .json(error?.response?.data || error.message);
   }
 });
 
@@ -35,7 +39,9 @@ app.get("/guilds", async (req, res) => {
 
     res.status(200).json(data);
   } catch (error) {
-    res.status(error.response.status).json(error.response.data);
+    res
+      .status(error?.response?.status || 400)
+      .json(error?.response?.data || error.message);
   }
 });
 
