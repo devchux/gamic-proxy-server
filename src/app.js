@@ -1,7 +1,6 @@
-const fetch = require("node-fetch");
 const express = require("express");
 const cors = require("cors");
-const { errorResponse } = require("./utils/helper");
+const { statsRouter, dashboardRouter } = require("./routes");
 
 const app = express();
 
@@ -15,43 +14,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/summary", async (req, res) => {
-  try {
-    const response = await fetch("https://gamic.app/api/dashboard/summary");
-
-    const data = await response.json();
-
-    res.status(200).json(data);
-  } catch (error) {
-    errorResponse(res, error);
-  }
-});
-
-app.get("/summary2", async (req, res) => {
-  try {
-    const response = await fetch("https://gamic.app/api/dashboard/summary2");
-
-    const data = await response.json();
-
-    res.status(200).json(data);
-  } catch (error) {
-    errorResponse(res, error);
-  }
-});
-
-app.get("/guilds", async (req, res) => {
-  const { current, size } = req.query;
-  try {
-    const response = await fetch(
-      `https://gamic.app/api/dashboard/guilds?current=${current}&size=${size}`
-    );
-
-    const data = await response.json();
-
-    res.status(200).json(data);
-  } catch (error) {
-    errorResponse(res, error);
-  }
-});
+app.use("/stats", statsRouter);
+app.use("/dashboard", dashboardRouter);
 
 module.exports = app;
