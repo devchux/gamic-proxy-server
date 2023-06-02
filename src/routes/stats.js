@@ -18,4 +18,39 @@ router.get(
   requestMiddleware(`https://gamic.app/stats/wallet-count`)
 );
 
+router.get(
+  "/airdrop-volume-trend",
+  requestMiddleware(`https://gamic.app/stats/airdrop-volume-trend`)
+);
+
+router.get(
+  "/airdrop-count-trend",
+  requestMiddleware(`https://gamic.app/stats/airdrop-count-trend`)
+);
+
+router.get(
+  "/swap-volume-trend",
+  requestMiddleware(`https://gamic.app/stats/swap-volume-trend`)
+);
+
+router.get(
+  "/swap-count-trend",
+  requestMiddleware(`https://gamic.app/stats/swap-count-trend`)
+);
+
+router.get(
+  "/transfer-volume-trend",
+  requestMiddleware(`https://gamic.app/stats/transfer-volume-trend`)
+);
+
+router.get(
+  "/transfer-count-trend",
+  requestMiddleware(`https://gamic.app/stats/transfer-count-trend`)
+);
+
+router.get(
+  "/transactions-type",
+  requestMiddleware(`https://gamic.app/stats/transactions-type`)
+);
+
 module.exports = router;
