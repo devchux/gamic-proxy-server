@@ -48,4 +48,9 @@ router.get(
   requestMiddleware(`https://gamic.app/stats/transfer-count-trend`)
 );
 
+router.get(
+  "/transactions-type",
+  requestMiddleware(`https://gamic.app/stats/transactions-type`)
+);
+
 module.exports = router;
