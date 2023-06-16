@@ -2,17 +2,25 @@
   "name": "gamic-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lambda.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node local.js",
+    "deploy": "serverless deploy"
   },
-  "author": "Chukwudi",
+  "author": "Olushola",
   "license": "ISC",
   "dependencies": {
+    "aws-serverless-express": "^3.4.0",
     "axios": "^1.2.3",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "mongodb": "^5.5.0",
+    "mongoose": "^7.1.2",
     "node-fetch": "^2.6.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "serverless": "^3.25.1"
   }
 }
